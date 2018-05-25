@@ -2,12 +2,13 @@ import os
 import sys
 from types import FunctionType
 
-from extension.screencast.vlc_recorder import VlcRecorder
-from extension.testdata.testdata import get_global_testdata, TestData
-from extension.parsers.parameter_parser import set_parameter_file
-from extension.util.GlobalUtils import Singleton
+from QAutoLibrary import FileOperations
+from QAutoLibrary.QAutoSelenium import CommonUtils
 
-from SeleniumQautorobot import CommonUtils
+from QAutoLibrary.extension.screencast.vlc_recorder import VlcRecorder
+from QAutoLibrary.extension.testdata.testdata import get_global_testdata, TestData
+from QAutoLibrary.extension.parsers.parameter_parser import set_parameter_file
+from QAutoLibrary.extension.util.GlobalUtils import Singleton
 
 DefaultDirectory = ["pagemodel", "common_lib"]
 MethodNameStrip = ["component_", "common_lib_"]
@@ -16,9 +17,9 @@ WarningNoTestData = "QautoRobot: Not using TestData"
 WarningMethodAlreadyBound = '\nQautoRobot: Attribute "{0}" already bound:\n{1} (bound)\n{2} (not bound)\n'
 WarningDirectoryNotFound = "QautoRobot: Method directory could not be found: "
 LibraryScope = 'TEST SUITE'
-LibraryAttributeName = "QA"
+LibraryAttributeName = "QAutoRobot"
 
-class QautoRobot(CommonUtils):
+class QAutoRobot(CommonUtils):
     """
     Robot library for dynamically adding all qautorobot methods to robot runnable state or in robot project libraries
     """
@@ -46,7 +47,6 @@ class QautoRobot(CommonUtils):
         """
         Dynamically add all library methods to library
         """
-        # Add class into module for using in project python libraries
         sys.modules[LibraryAttributeName] = self
 
         # Set test data methods to library if test data file set
@@ -56,10 +56,25 @@ class QautoRobot(CommonUtils):
         else:
             self.warning(WarningNoTestData)
 
+        self.set_file_operation_methods()
+
         # Set directory methods into library
         for directory in self.directory:
             sys.path.append(directory)
             self.set_module_methods(directory)
+
+    def set_file_operation_methods(self):
+        """
+        Set testdata methods from global testdata to class
+
+        :return: None
+        """
+        method_names = (_name for _name in self.get_class_methods(FileOperations) if not _name.startswith("_"))
+        for _method_name in method_names:
+            # Get method
+            _method = getattr(FileOperations, _method_name)
+            # Set testdata method into library
+            self.set_attribute_if_not_exists(self, _method_name, _method)
 
     def set_testdata_methods(self):
         """

@@ -7,6 +7,7 @@ import sys
 import time
 import traceback
 import unittest
+import requests
 from PIL import Image  # @UnresolvedImport
 from collections import OrderedDict
 from datetime import datetime
@@ -15,7 +16,8 @@ from lxml import etree
 from re import search
 from urllib2 import URLError, HTTPError
 
-import requests
+from logging import warn
+
 from requests.auth import HTTPBasicAuth
 from selenium.common.exceptions import WebDriverException, NoAlertPresentException
 from selenium.webdriver.common.action_chains import ActionChains
@@ -25,19 +27,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from simplejson import loads, dumps
 from urllib3.exceptions import ConnectionError
 
-from extension.mobile.android_util_functions import AndroidUtilFunctions
-from extension.util.common_methods_helpers import CommonMethodsHelpers, DebugLog
-from extension.webdriver_cache.webdriver_cache import DriverCache
-from extension.util.GlobalUtils import GlobalUtils
-from extension.webdriver_cache.browser import create_driver
-from extension.config import get_config_value
-from extension.util.webtimings import get_measurements as webtimings_get_measurements
-from FileOperations import open_file, get_file_lines, save_content_to_file, get_file_content
-from logging import warn
+from QAutoLibrary.extension.mobile.android_util_functions import AndroidUtilFunctions
+from QAutoLibrary.extension.util.common_methods_helpers import CommonMethodsHelpers, DebugLog
+from QAutoLibrary.extension.webdriver_cache.webdriver_cache import DriverCache
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils
+from QAutoLibrary.extension.webdriver_cache.browser import create_driver
+from QAutoLibrary.extension.config import get_config_value
+from QAutoLibrary.extension.util.webtimings import get_measurements as webtimings_get_measurements
+from QAutoLibrary.FileOperations import open_file, get_file_lines, save_content_to_file, get_file_content
 
 #TODO decide how to fix this
 try:
-    from extension import XmlScreenshotParser
+    from QAutoLibrary.extension import XmlScreenshotParser
 except:
     pass
 
@@ -4877,7 +4878,6 @@ class CommonUtils(WebMethods, AndroidMethods, Asserts, Wrappers, AndroidAsserts,
             self.__add_tests_to_class(test_class, self.DATA_TEST_CASES_AND_DATA_FILES[test_case], test_case.__name__)
         self.DATA_TEST_CASES_AND_DATA_FILES = {}
         return test_class
-
 
     def data_test(self, data_file):
         """
