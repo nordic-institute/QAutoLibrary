@@ -19,8 +19,8 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-from extension.util.GlobalUtils import GlobalUtils, throw_error
-from extension.config import get_config_value
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils, throw_error
+from QAutoLibrary.extension.config import get_config_value
 
 
 class Browsers:
