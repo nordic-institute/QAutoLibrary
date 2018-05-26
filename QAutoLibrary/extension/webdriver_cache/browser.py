@@ -157,7 +157,7 @@ def create_driver(browser_name):
                 pass
 
         capabilities = _get_browser_options_from_project_xml("default",
-                                                             _browser_full_names[GlobalUtils.BROWSER_NAMES[Browsers.IE]],
+                                                             GlobalUtils._browser_full_names[GlobalUtils.BROWSER_NAMES[Browsers.IE]],
                                                              "capabilities")
 
         ie_capabilities = DesiredCapabilities.INTERNETEXPLORER
