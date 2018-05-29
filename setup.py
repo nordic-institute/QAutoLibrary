@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.2",
     author="QAutomate",
     author_email="contact@qautomate.fi",
-    description="",
+    description="QAutofamily testing framework library",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/QAutofamily/QAutoLibrary",
@@ -16,7 +16,7 @@ setuptools.setup(
     package_data={'QAutoLibrary.config': ['*.xml', '*.ini']},
     classifiers=(
         "Programming Language :: Python :: 2.7",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Apache License 2.0",
         "Operating System :: OS Independent",
     ),
 )
