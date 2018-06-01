@@ -1,7 +1,7 @@
 from lxml import etree as ET
 from xml.dom import minidom
 
-from FileOperations import save_content_to_file
+from QAutoLibrary.FileOperations import save_content_to_file
 
 
 class XmlTestDataFunctions():

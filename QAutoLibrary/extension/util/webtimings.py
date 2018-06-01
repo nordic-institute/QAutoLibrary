@@ -16,10 +16,10 @@ import urllib2
 
 from selenium.common.exceptions import WebDriverException
 
-from extension.util.common_methods_helpers import CommonMethodsHelpers
-from extension.util.GlobalUtils import GlobalUtils
-from extension.config import get_config_value
-from FileOperations import save_content_to_file, get_file_lines
+from QAutoLibrary.extension.util.common_methods_helpers import CommonMethodsHelpers
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils
+from QAutoLibrary.extension.config import get_config_value
+from QAutoLibrary.FileOperations import save_content_to_file, get_file_lines
 
 __RESPONSE = None
 

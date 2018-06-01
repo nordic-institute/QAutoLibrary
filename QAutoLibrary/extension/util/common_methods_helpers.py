@@ -17,7 +17,7 @@ from selenium.common.exceptions import StaleElementReferenceException, ElementNo
     ElementNotSelectableException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 
-from extension.config import get_config_value
+from QAutoLibrary.extension.config import get_config_value
 
 
 class CommonMethodsHelpers(object):

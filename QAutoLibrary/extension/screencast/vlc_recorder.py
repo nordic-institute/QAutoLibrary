@@ -12,8 +12,8 @@
 """
 import time
 
-from extension.config import get_config_value
-from extension.screencast import vlc
+from QAutoLibrary.extension.config import get_config_value
+from QAutoLibrary.extension.screencast import vlc
 
 
 ## Video recorder class

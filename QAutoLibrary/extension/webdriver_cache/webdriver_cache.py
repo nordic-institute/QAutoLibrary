@@ -10,9 +10,9 @@
 #    Distributed with QAutomate license.
 #    All rights reserved, see LICENSE for details.
 """
-from extension.util.common_methods_helpers import DebugLog
-from extension.util.GlobalUtils import GlobalUtils, Singleton
-from extension.webdriver_cache.browser import reset_protected_mode, Browsers
+from QAutoLibrary.extension.util.common_methods_helpers import DebugLog
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils, Singleton
+from QAutoLibrary.extension.webdriver_cache.browser import reset_protected_mode, Browsers
 
 
 class DriverIdAlias(object):

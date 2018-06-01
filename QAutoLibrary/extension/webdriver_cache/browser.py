@@ -19,8 +19,8 @@ from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-from extension.util.GlobalUtils import GlobalUtils, throw_error
-from extension.config import get_config_value
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils, throw_error
+from QAutoLibrary.extension.config import get_config_value
 
 
 class Browsers:
@@ -157,7 +157,7 @@ def create_driver(browser_name):
                 pass
 
         capabilities = _get_browser_options_from_project_xml("default",
-                                                             _browser_full_names[GlobalUtils.BROWSER_NAMES[Browsers.IE]],
+                                                             GlobalUtils.BROWSER_FULL_NAMES[GlobalUtils.BROWSER_NAMES[Browsers.IE]],
                                                              "capabilities")
 
         ie_capabilities = DesiredCapabilities.INTERNETEXPLORER
@@ -271,13 +271,9 @@ def create_driver(browser_name):
         except WebDriverException as e:
             # try with 64bit version if we are using windows
             if not GlobalUtils.is_linux():
-                print "Failed to use win 32bit geckodriver "
-                print "Using win 64bit geckodriver"
                 if os.path.join(GlobalUtils.RESOURCES_GECKO32_PATH) in os.environ["PATH"]:
-                    print "Removing win 32bit geckodriver from path"
                     os.environ["PATH"] = os.environ["PATH"].replace(os.pathsep + os.path.join(GlobalUtils.RESOURCES_GECKO32_PATH), "")
                 if not os.path.join(GlobalUtils.RESOURCES_GECKO64_PATH) in os.environ["PATH"]:
-                    print "Adding win 64bit geckodriver to path"
                     os.environ["PATH"] += os.pathsep + os.path.join(GlobalUtils.RESOURCES_GECKO64_PATH)
                 _driver = webdriver.Firefox(firefox_profile=profile, capabilities=firefox_capabilities)
             else:

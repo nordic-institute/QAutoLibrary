@@ -15,8 +15,8 @@ import re
 import time
 from subprocess import Popen, PIPE, STDOUT
 
-from extension.util.GlobalUtils import GlobalUtils
-from extension.config import get_config_value
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils
+from QAutoLibrary.extension.config import get_config_value
 
 
 # static class

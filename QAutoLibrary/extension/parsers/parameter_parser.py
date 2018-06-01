@@ -12,14 +12,15 @@
 """
 import os
 import re
+import xmltodict
+
 from random import randint, choice
 from xml.dom import minidom
 from xml.sax.saxutils import escape
 
-import xmltodict
-from extension.util.GlobalUtils import GlobalUtils, throw_error
-from extension.util.testdata_xml_utils import XmlTestDataFunctions
-from extension.testdata import testdata
+from QAutoLibrary.extension.util.GlobalUtils import GlobalUtils, throw_error
+from QAutoLibrary.extension.util.testdata_xml_utils import XmlTestDataFunctions
+from QAutoLibrary.extension.testdata import testdata
 
 # This global variable used by get_parameter and get_parameter_dict. See 'ParameterParser' class
 __PARAMETER_PARSER = None

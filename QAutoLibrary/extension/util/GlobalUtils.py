@@ -76,8 +76,8 @@ class GlobalUtils(object):
     WEBFRAMEWORK_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
     RESOURCES_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "resources"))
 
-    SITE_PACKAGES_QAUTOROBOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
-    WEBDRIVERS_PATH = os.path.join(SITE_PACKAGES_QAUTOROBOT_PATH, "webdrivers")
+    SITE_PACKAGES_QAUTOLIBRARY_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+    WEBDRIVERS_PATH = os.path.join(SITE_PACKAGES_QAUTOLIBRARY_PATH, "webdrivers")
     RESOURCES_GECKO32_PATH = os.path.join(WEBDRIVERS_PATH, "geckodriver_win32")
     RESOURCES_GECKO64_PATH = os.path.join(WEBDRIVERS_PATH, "geckodriver_win64")
     RESOURCES_LINUX_GECKO64_PATH = os.path.join(WEBDRIVERS_PATH, "geckodriver_linux64")

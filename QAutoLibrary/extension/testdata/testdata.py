@@ -13,7 +13,7 @@
 import glob
 import os
 
-import extension
+import QAutoLibrary.extension
 
 
 def set_global_testdata(testdata):
@@ -23,7 +23,7 @@ def set_global_testdata(testdata):
     :param testdata: test data dict
     :return: None
     """
-    extension.TESTDATA = testdata
+    QAutoLibrary.extension.TESTDATA = testdata
 
 
 def get_global_testdata():
@@ -32,7 +32,7 @@ def get_global_testdata():
 
     :return: global test data dictionary
     """
-    return extension.TESTDATA
+    return QAutoLibrary.extension.TESTDATA
 
 
 class TestData(dict):
