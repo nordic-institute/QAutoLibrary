@@ -918,8 +918,10 @@ class CommonMethods(object):
         # register driver and get id
         _id = self.driver_cache.register(driver, browser_name, alias)
 
+
         if not size and not (self.driver_cache._is_aa() and self.driver_cache._is_ac()):
-            driver.maximize_window()
+            # always max window
+            driver.set_window_size(1024, 768)
 
         if url:
             DebugLog.log("* Opening base url '%s'" % url)
